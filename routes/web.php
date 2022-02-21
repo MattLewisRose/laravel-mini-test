@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsletterRecipientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('subscribe');
 });
 
-Route::post('/newspaper-recipients/store', 'NewsletterRecipientController@store')
-    ->name('newspaper-recipient.store');
+Route::put('/newsletter-recipients/store', [NewsletterRecipientController::class, 'store'])
+    ->name('newsletter-recipient.store');

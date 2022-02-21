@@ -13,7 +13,7 @@ class NewsletterRecipientSubmitRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class NewsletterRecipientSubmitRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|email'
+            'email' => 'required|email|unique:newsletter_recipient,email'
         ];
     }
 }

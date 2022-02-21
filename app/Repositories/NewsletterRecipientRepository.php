@@ -2,10 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\NewsletterRecipientSubmitRequest;
+use App\Interfaces\NewsletterRecipientRepositoryInterface;
 use App\Models\NewsletterRecipient;
+use Illuminate\Support\Collection;
 
-class NewsletterRecipientRepository
+class NewsletterRecipientRepository implements NewsletterRecipientRepositoryInterface
 {
     /**
      * Return a model matching the given ID
@@ -16,6 +17,16 @@ class NewsletterRecipientRepository
     public function find(int $id): NewsletterRecipient|null
     {
         return NewsletterRecipient::find($id);
+    }
+
+    /**
+     * Return all Newsletter Recipients in the database
+     *
+     * @return Collection
+     */
+    public function all(): Collection
+    {
+        return NewsletterRecipient::all();
     }
 
     /**

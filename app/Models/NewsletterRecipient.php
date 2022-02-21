@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class NewsletterRecipient extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'email'];
+
+    protected $table = "newsletter_recipient";
 }

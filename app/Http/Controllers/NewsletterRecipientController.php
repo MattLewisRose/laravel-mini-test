@@ -22,7 +22,7 @@ class NewsletterRecipientController extends Controller
      */
     public function store(NewsletterRecipientSubmitRequest $request): Response
     {
-        $this->newsletterRecipientRepository->store($request->validated);
+        $this->newsletterRecipientRepository->store($request->validated());
         return Response('Newsletter Recipient stored', 200);
     }
 }

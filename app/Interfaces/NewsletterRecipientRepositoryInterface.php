@@ -5,6 +5,7 @@ namespace App\Interfaces;
 use App\Http\Requests\NewsletterRecipientSubmitRequest;
 use App\Models\NewsletterRecipient;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 
 interface NewsletterRecipientRepositoryInterface
 {
@@ -17,10 +18,17 @@ interface NewsletterRecipientRepositoryInterface
     function find(int $id): NewsletterRecipient|null;
 
     /**
+     * Return all newsletter recipients in the database
+     *
+     * @return Collection
+     */
+    function all(): Collection;
+
+    /**
      * Store a new Newsletter Recipient in the database
      *
-     * @param NewsletterRecipientSubmitRequest $request
+     * @param array $attributes
      * @return Response
      */
-    function store(NewsletterRecipientSubmitRequest $request): Response;
+    function store(array $attributes): NewsletterRecipient;
 }
