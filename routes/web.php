@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/newspaper-recipients/store', 'NewsletterRecipientController@store')
+    ->name('newspaper-recipient.store');

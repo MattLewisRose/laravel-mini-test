@@ -21,11 +21,11 @@ class NewsletterRecipientRepository
     /**
      * Store a new newsletter recipient in the database
      *
-     * @param NewsletterRecipientSubmitRequest $request
+     * @param array $attributes
      * @return NewsletterRecipient
      */
-    public function store(NewsletterRecipientSubmitRequest $request): NewsletterRecipient
+    public function store(array $attributes): NewsletterRecipient
     {
-        return NewsletterRecipient::create($request->validated);
+        return NewsletterRecipient::create($attributes);
     }
 }
